@@ -8,14 +8,13 @@ export default class Symbol {
       this.img = cache[name].cloneNode();
     } else {
       this.img = new Image();
-      this.img.src = require(`../assets/symbols/${name}.svg`);
-
+      this.img.src = `../assets/symbols/${name}.svg`; // Caminho relativo correto
       cache[name] = this.img;
     }
   }
 
   static preload() {
-    Symbol.symbols.forEach((symbol) => new Symbol(symbol));
+    Symbol.symbols.forEach(symbol => new Symbol(symbol));
   }
 
   static get symbols() {
@@ -28,7 +27,7 @@ export default class Symbol {
       "r2d2",
       "stormtrooper",
       "tie_ln",
-      "yoda",
+      "yoda"
     ];
   }
 
