@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Slot Machine</title>
+
+  <!-- Bootstrap Reboot local -->
+  <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="slot">
+    <div id="jackpot">Jackpot: <span id="jp">5,555,555</span></div>
+    <div id="reels">
+      <div class="reel"></div>
+      <div class="reel"></div>
+      <div class="reel"></div>
+      <div class="reel"></div>
+      <div class="reel"></div>
+    </div>
+    <div id="controls">
+      <button type="button" id="spin">SPIN</button>
+      <label>
+        <input type="checkbox" name="autoplay" id="autoplay"> Autoplay
+      </label>
+    </div>
+  </div>
+
+  <!-- Game JS scripts -->
+  <script src="js/Symbol.js"></script>
+  <script src="js/Reel.js"></script>
+  <script src="js/Slot.js"></script>
+  <script src="js/index.js"></script>
+
+<!-- 🔒 Domain protection -->
+  <script>
+  (function () {
+    const allowedDomains = [
+      "bulofkgames.blogspot.com",
+      "thebulofkproject.blogspot.com",
+      "github.io"
+    ];
+
+    const OFFICIAL_SITE = "https://bulofkgames.blogspot.com/";
+    const ref = document.referrer.toLowerCase();
+
+    if (!ref) return;
+
+    const allowed = allowedDomains.some(domain => ref.includes(domain));
+
+    if (!allowed) {
+      window.location.replace(OFFICIAL_SITE);
+    }
+  })();
+  </script>
+
+</body>
+</html>
