@@ -23,7 +23,6 @@ export default class Reel {
 
   spin() {
     return new Promise(resolve => {
-      // Simula animação
       setTimeout(() => resolve(), 1000 + this.idx * 300);
     });
   }
