@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML5 Slot Machine</title>
+
   <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
   <div id="slot">
     <div id="jackpot">Jackpot: <span id="jp">5,555,555</span></div>
+
     <div id="reels">
       <div class="reel"></div>
       <div class="reel"></div>
@@ -17,15 +20,16 @@
       <div class="reel"></div>
       <div class="reel"></div>
     </div>
+
     <div id="controls">
       <button type="button" id="spin">SPIN</button>
       <label>
-        <input type="checkbox" name="autoplay" id="autoplay"> Autoplay
+        <input type="checkbox" id="autoplay"> Autoplay
       </label>
     </div>
   </div>
 
-  <!-- Scripts como módulos -->
+  <!-- Game script -->
   <script type="module" src="js/index.js"></script>
 
   <!-- 🔒 Domain protection -->
@@ -36,12 +40,16 @@
         "thebulofkproject.blogspot.com",
         "github.io"
       ];
+
       const OFFICIAL_SITE = "https://bulofkgames.blogspot.com/";
       const ref = document.referrer.toLowerCase();
+
       if (!ref) return;
+
       const allowed = allowedDomains.some(domain => ref.includes(domain));
       if (!allowed) window.location.replace(OFFICIAL_SITE);
     })();
   </script>
+
 </body>
 </html>
