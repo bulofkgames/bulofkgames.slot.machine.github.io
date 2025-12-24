@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML5 Slot Machine</title>
+  <title> Slot Machine</title>
 
   <!-- Bootstrap Reboot local -->
   <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
@@ -28,29 +28,32 @@
     </div>
   </div>
 
-  <!-- Carrega apenas o index.js como módulo -->
-  <script type="module" src="js/index.js"></script>
+  <!-- Game JS scripts -->
+  <script src="js/Symbol.js"></script>
+  <script src="js/Reel.js"></script>
+  <script src="js/Slot.js"></script>
+  <script src="js/index.js"></script>
 
   <!-- 🔒 Domain protection -->
   <script>
-  (function () {
-    const allowedDomains = [
-      "bulofkgames.blogspot.com",
-      "thebulofkproject.blogspot.com",
-      "github.io"
-    ];
+    (function () {
+      const allowedDomains = [
+        "bulofkgames.blogspot.com",
+        "thebulofkproject.blogspot.com",
+        "github.io"
+      ];
 
-    const OFFICIAL_SITE = "https://bulofkgames.blogspot.com/";
-    const ref = document.referrer.toLowerCase();
+      const OFFICIAL_SITE = "https://bulofkgames.blogspot.com/";
+      const ref = document.referrer.toLowerCase();
 
-    if (!ref) return;
+      if (!ref) return;
 
-    const allowed = allowedDomains.some(domain => ref.includes(domain));
+      const allowed = allowedDomains.some(domain => ref.includes(domain));
 
-    if (!allowed) {
-      window.location.replace(OFFICIAL_SITE);
-    }
-  })();
+      if (!allowed) {
+        window.location.replace(OFFICIAL_SITE);
+      }
+    })();
   </script>
 </body>
 </html>
