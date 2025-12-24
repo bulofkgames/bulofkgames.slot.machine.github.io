@@ -1,6 +1,4 @@
-import Symbol from './Symbol.js';
-
-export default class Reel {
+class Reel {
   constructor(reelContainer, idx, initialSymbols) {
     this.reelContainer = reelContainer;
     this.idx = idx;
@@ -9,34 +7,19 @@ export default class Reel {
     this.symbolContainer.classList.add("icons");
     this.reelContainer.appendChild(this.symbolContainer);
 
-    initialSymbols.forEach(symbol => 
-      this.symbolContainer.appendChild(new Symbol(symbol).img)
+    initialSymbols.forEach((symbol) =>
+      this.symbolContainer.appendChild(new SymbolClass(symbol).img)
     );
   }
 
   renderSymbols(nextSymbols) {
-    const fragment = document.createDocumentFragment();
-
-    for (let i = 0; i < nextSymbols.length; i++) {
-      const icon = new Symbol(nextSymbols[i]);
-      fragment.appendChild(icon.img);
-    }
-
-    this.symbolContainer.appendChild(fragment);
+    this.symbolContainer.innerHTML = "";
+    nextSymbols.forEach((s) => this.symbolContainer.appendChild(new SymbolClass(s).img));
   }
 
   spin() {
-    return new Promise(resolve => {
-      this.symbolContainer.animate(
-        [
-          { transform: "translateY(0)" },
-          { transform: "translateY(-200%)" }
-        ],
-        {
-          duration: 1000 + this.idx * 200,
-          easing: "ease-in-out"
-        }
-      ).onfinish = resolve;
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(), 1000 + this.idx * 300);
     });
   }
 }

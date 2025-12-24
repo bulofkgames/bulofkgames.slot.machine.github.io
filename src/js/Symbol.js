@@ -1,20 +1,21 @@
 const cache = {};
 
-export default class Symbol {
-  constructor(name = Symbol.random()) {
+class SymbolClass {
+  constructor(name = SymbolClass.random()) {
     this.name = name;
 
     if (cache[name]) {
       this.img = cache[name].cloneNode();
     } else {
       this.img = new Image();
-      this.img.src = `../assets/symbols/${name}.svg`; // Caminho relativo correto
+      this.img.src = `assets/symbols/${name}.svg`; // caminho correto
+
       cache[name] = this.img;
     }
   }
 
   static preload() {
-    Symbol.symbols.forEach(symbol => new Symbol(symbol));
+    SymbolClass.symbols.forEach((symbol) => new SymbolClass(symbol));
   }
 
   static get symbols() {
@@ -27,7 +28,7 @@ export default class Symbol {
       "r2d2",
       "stormtrooper",
       "tie_ln",
-      "yoda"
+      "yoda",
     ];
   }
 
